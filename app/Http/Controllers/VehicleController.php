@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\Vehicle;
 use App\Models\Company;
+use App\Models\Sales;
 class VehicleController extends Controller
 {
     
@@ -99,8 +100,14 @@ class VehicleController extends Controller
         
     public function show($id)
     {
-        $vehicle=Vehicle::find($id);
-        return view('vehicle.show',compact('vehicle'));
+        $vehicle=Vehicle::find($id); 
+        $sales=Sales::where('client_id',$id)->get();
+        $company=Company::where('id',$vehicle->company_id)->first();
+        $total=DB::table('sales')->where('client_id',$id)->sum('total_amount');
+        $paid=DB::table('sales')->where('client_id',$id)->sum('paid_amount');
+        $due=DB::table('sales')->where('client_id',$id)->sum('due_amount');
+        $quantity=DB::table('sales')->where('client_id',$id)->sum('quantity');
+        return view('vehicle.show',compact('vehicle','company','total','paid','due','quantity','sales'));
     }
      public function getvehicle($company_id){
         $vehicle=DB::table('vehicles')->where('company_id',$company_id)->get();

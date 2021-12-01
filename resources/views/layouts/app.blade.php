@@ -39,7 +39,7 @@
     <link href="{{asset('/lib/select2/css/select2.min.css')}}" rel="stylesheet">
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{asset('/css/starlight.css')}}">
   </head>
@@ -366,6 +366,29 @@
                 });
             });
     </script>
-   
+   <script>  
+         $(document).on("click", "#paid", function(e){
+             e.preventDefault();
+             var link = $(this).attr("href");
+                Swal.fire({
+                  title: "Are you sure to make Paid?",
+                  text: "Once Paid, Due Amount will be 0",
+                  icon: "warning",
+                  buttons: true,
+                   showDenyButton: true,
+                    confirmButtonText: 'Cancel',
+                   denyButtonText: `Ok`,
+                  
+                  dangerMode: true,
+                })
+                .then((willDelete) => {
+                  if (willDelete.isDenied) {
+                       window.location.href = link;
+                  } else if (willDelete.isConfirmed) {
+                       Swal.fire('Changes are not saved', '', 'info')
+                      }
+                });
+            });
+    </script>
   </body>
 </html>

@@ -44,4 +44,27 @@ class SalesController extends Controller
         $company=DB::table('companies')->where('id',$client->company_id)->first();
         return view('invoice',compact('sales','product','client','company'));
     }
+     public function delete($id){
+
+       $sales= Sales::find($id);
+       $sales->delete();
+        $notification=array(
+            'messege'=>'Sales Data Deleted Successfully',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+    }
+     public function paid($id){
+
+       $sales= Sales::find($id);
+       $total_amount=$sales->due_amount+$sales->paid_amount;
+       $sales->paid_amount=$total_amount;
+       $sales->due_amount=0;
+       $sales->update();
+        $notification=array(
+            'messege'=>'Sales Data Paid Successfully',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+    }
 }

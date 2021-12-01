@@ -1,6 +1,6 @@
 
     <!-- ########## START: LEFT PANEL ########## -->
-    <div class="sl-logo"><a href="{{route('home')}}"><i class="icon ion-android-star-outline"></i> starlight</a></div>
+    <div class="sl-logo"><a href="{{route('home')}}"><i class="fa fa-gas-pump"></i>Filling Station</a></div>
     <div class="sl-sideleft">
       <div class="input-group input-group-search">
         <input type="search" name="search" class="form-control" placeholder="Search">
@@ -11,7 +11,7 @@
 
       <label class="sidebar-label">Navigation</label>
       <div class="sl-sideleft-menu">
-        <a href="index.html" class="sl-menu-link active">
+        <a href="{{route('admin')}}" class="sl-menu-link active">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
             <span class="menu-item-label">Dashboard</span>
@@ -19,7 +19,7 @@
         </a><!-- sl-menu-link -->
         <a href="{{route('sales')}}" class="sl-menu-link">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+            <i class="menu-item-icon icon ion-android-cart tx-20"></i>
             <span class="menu-item-label">POS</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
@@ -31,47 +31,35 @@
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="{{route('company')}}" class="nav-link">Company List</a></li>
-          <li class="nav-item"><a href="chart-flot.html" class="nav-link">Flot Charts</a></li>
-          <li class="nav-item"><a href="chart-chartjs.html" class="nav-link">Chart JS</a></li>
+          <li class="nav-item"><a href="{{route('company')}}" class="nav-link"> <i class="menu-item-icon icon ion-ios-paper-outline tx-22"></i> Company List</a></li>
+          <?php $company=DB::table('companies')->get();?>
+          @foreach ($company as $item)
+              
+        @if ($item->id!=1)
+            
+       
+          <li class="nav-item"><a href="{{route('vehicle.company',['id'=>$item->id])}}" class="nav-link">{{$item->name}}</a></li>
+          @endif {{-- <li class="nav-item"><a href="chart-chartjs.html" class="nav-link">Chart JS</a></li>
           <li class="nav-item"><a href="chart-rickshaw.html" class="nav-link">Rickshaw</a></li>
-          <li class="nav-item"><a href="chart-sparkline.html" class="nav-link">Sparkline</a></li>
+          <li class="nav-item"><a href="chart-sparkline.html" class="nav-link">Sparkline</a></li>   --}}
+          @endforeach
         </ul>
-        <a href="#" class="sl-menu-link">
+        <a href="{{route('vehicle')}}" class="sl-menu-link">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon ion-ios-gear-outline tx-24"></i>
+            <i class="menu-item-icon icon ion-android-car tx-24"></i>
             <span class="menu-item-label">Vehicles</span>
-            <i class="menu-item-arrow fa fa-angle-down"></i>
+            
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-        <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="{{route('vehicle')}}" class="nav-link">Vehicles List</a></li>
-          <li class="nav-item"><a href="form-layouts.html" class="nav-link">Form Layouts</a></li>
-          <li class="nav-item"><a href="form-validation.html" class="nav-link">Form Validation</a></li>
-          <li class="nav-item"><a href="form-wizards.html" class="nav-link">Form Wizards</a></li>
-          <li class="nav-item"><a href="form-editor-text.html" class="nav-link">Text Editor</a></li>
-        </ul>
-        <a href="#" class="sl-menu-link">
+     
+        <a href="{{route('product')}}" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
             <span class="menu-item-label">Product</span>
-            <i class="menu-item-arrow fa fa-angle-down"></i>
+          
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-        <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="{{route('product')}}" class="nav-link">Product List</a></li>
-          <li class="nav-item"><a href="alerts.html" class="nav-link">Alerts</a></li>
-          <li class="nav-item"><a href="buttons.html" class="nav-link">Buttons</a></li>
-          <li class="nav-item"><a href="cards.html" class="nav-link">Cards</a></li>
-          <li class="nav-item"><a href="icons.html" class="nav-link">Icons</a></li>
-          <li class="nav-item"><a href="modal.html" class="nav-link">Modal</a></li>
-          <li class="nav-item"><a href="navigation.html" class="nav-link">Navigation</a></li>
-          <li class="nav-item"><a href="pagination.html" class="nav-link">Pagination</a></li>
-          <li class="nav-item"><a href="popups.html" class="nav-link">Tooltip &amp; Popover</a></li>
-          <li class="nav-item"><a href="progress.html" class="nav-link">Progress</a></li>
-          <li class="nav-item"><a href="spinners.html" class="nav-link">Spinners</a></li>
-          <li class="nav-item"><a href="typography.html" class="nav-link">Typography</a></li>
-        </ul>
+{{--         
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
@@ -112,7 +100,7 @@
           <li class="nav-item"><a href="page-signin.html" class="nav-link">Signin Page</a></li>
           <li class="nav-item"><a href="page-signup.html" class="nav-link">Signup Page</a></li>
           <li class="nav-item"><a href="page-notfound.html" class="nav-link">404 Page Not Found</a></li>
-        </ul>
+        </ul> --}}
       </div><!-- sl-sideleft-menu -->
 
       <br>

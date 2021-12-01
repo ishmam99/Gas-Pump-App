@@ -18,25 +18,32 @@
             <table id="datatable1" class="table display responsive nowrap">
               <thead>
                 <tr>
-                  <th class="wd-15p">ID</th>
-                   <th class="wd-15p">Vehicle Number</th>
-                   <th class="wd-15p">Owener name</th>
-                 
-                  <th class="wd-20p">Phone</th>
-                   <th class="wd-20p">Action</th>
+                  <th class="wd-10p">ID</th>
+                   <th class="wd-10p">Vehicle Number</th>
+                   <th class="wd-10p">Owener name</th>
+                  <th class="wd-10p">Phone</th>
+                  <th class="wd-10p">Total Purchased</th>
+                   <th class="wd-10p">Total Paid</th>
+                    <th class="wd-10p">Total Due</th>
+                   <th class="wd-15p">Action</th>
                   
                 </tr>
               </thead>
               <tbody>
                 @foreach ($vehicles as $key=>$vehicle)
                     
-             
+             <?php $total=DB::table('sales')->where('client_id',$vehicle->id)->sum('total_amount');
+             $paid=DB::table('sales')->where('client_id',$vehicle->id)->sum('paid_amount');
+             $due=DB::table('sales')->where('client_id',$vehicle->id)->sum('due_amount');?>
                 <tr>
                   <td>{{$key +1}}</td>
                    <td><a href="{{route('show.vehicle',['id'=> $vehicle->id])}}">{{$vehicle->vehicle_number}}</a></td>
                   <td>{{$vehicle->owener_name}}</td>
-                   
-                   <td>{{$vehicle->owener_phone}}</td>
+                 
+                   <td>{{$vehicle->owener_phone}}</td> 
+                    <td>{{$total}}</td>
+                    <td>{{$paid}}</td>
+                    <td>{{$due}}</td>
                   <td>
                       <a href="{{route('edit.vehicle',['id' => $vehicle->id]) }}" class="btn btn-sm btn-info">Edit</a>
                       

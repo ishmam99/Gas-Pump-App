@@ -94,11 +94,7 @@ class CompanyController extends Controller
 
     public function vehicle($id)
     {
-         $vehicles=DB::table('vehicles')
-                            ->join('sales','sales.client_id','vehicles.id')
-                           ->select('vehicles.*','sales.due_amount','sales.paid_amount','sales.total_amount') 
-                            ->where('vehicles.company_id',$id)
-                            ->get();
+         $vehicles=DB::table('vehicles')->where('company_id',$id)->get();
                            
         $company=Company::where('id',$id)->first();
        

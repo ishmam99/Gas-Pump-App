@@ -79,6 +79,11 @@ Route::get('/sales',[SalesController::class,'index'])->name('sales');
 
 Route::post('/sales',[SalesController::class,'create'])->name('create.sales');
 
+Route::get('/sales/{id}',[SalesController::class,'delete'])->name('delete.sales');
+
+Route::get('/paid/{id}',[SalesController::class,'paid'])->name('paid.sales');
+
+
 
 Route::get('/invoice/{id}',[SalesController::class,'invoice'])->name('invoice');
 
