@@ -40,6 +40,12 @@
                 </div>
               </div>
               <div class="col-lg-4">
+                <div class="form-group mg-b-10-force">
+                  <label class="form-control-label">Driver Name: <span class="tx-danger"></span></label>
+                 <input type="text" class="form-control" placeholder="Enter Driver Name" name="driver_name">
+                </div>
+              </div>
+              <div class="col-lg-4">
                 <div class="form-group">
                    <label class="form-control-label">Select Product : <span class="tx-danger">*</span></label>
                 

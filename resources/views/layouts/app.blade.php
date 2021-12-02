@@ -67,9 +67,9 @@
                 @endif
                
                 <li><a href="{{route('profile')}}"><i class="icon ion-ios-gear-outline"></i> Settings</a></li>
-                <li><a href=""><i class="icon ion-ios-download-outline"></i> Downloads</a></li>
+                {{-- <li><a href=""><i class="icon ion-ios-download-outline"></i> Downloads</a></li>
                 <li><a href=""><i class="icon ion-ios-star-outline"></i> Favorites</a></li>
-                <li><a href=""><i class="icon ion-ios-folder-outline"></i> Collections</a></li>
+                <li><a href=""><i class="icon ion-ios-folder-outline"></i> Collections</a></li> --}}
                 <li><a href="{{route('logout')}}"><i class="icon ion-power"></i> Sign Out</a></li>
               </ul>
             </div><!-- dropdown-menu -->
@@ -260,9 +260,10 @@
     <script src="{{asset('/lib/datatables-responsive/dataTables.responsive.js')}}"></script>
     <script src="{{asset('/lib/select2/js/select2.min.js')}}"></script>
 <script>
+  
       $(function(){
         'use strict';
-
+        
         $('#datatable1').DataTable({
           responsive: true,
           language: {
@@ -276,7 +277,8 @@
           bLengthChange: false,
           searching: false,
           responsive: true,
-          bPaginate: false
+          bPaginate: false,
+          info : false
         });
 
         // Select2

@@ -22,11 +22,11 @@
                               <h4 >
                              <i class="fa fa-gas-pump"></i>  M/S Mohona Filling Station & Service Center
                            </h4> 
-                              
+                              <?php $serial= sprintf("%06s", $sales->id) ?>
                               
                             </div>
                             <div class="col-2">
-                              <small class="float-right">Date: {{Carbon\Carbon::now()->format('d-m-Y');}} <br> <b>Invoice #000{{$sales->id}}</b></small>
+                              <small class="float-right">Date: {{Carbon\Carbon::now()->format('d-m-Y');}} <br> <b>Invoice {{$serial}}</b></small>
                             </div>
                             <div class="col-10 text-center">
                               <p>Gabtoly,Mirpur,Dhaka-1216,Bangladesh      </p>
@@ -39,7 +39,7 @@
                              
                               <address>
                                 <strong>Name : {{$client->owener_name}}</strong><br>
-                                
+                                Driver Name : {{$sales->driver_name}} <br>
                               Company : {{$company->name}}<br>
                                 Phone : {{$client->owener_phone}}<br>
                                
@@ -72,8 +72,8 @@
                                 
                                 <tr>
                                   <td>1</td>
-                                
-                                  <td>{{$sales->vehicle_number}}</td>
+                                <?php $vehicle=DB::table('vehicles')->where('id',$client->id)->first();?>
+                                  <td>{{$vehicle->vehicle_number}}</td>
                                   <td>{{$product->product_name}}</td>
                                   <td>{{$sales->quantity}} ltr</td>
                                   <td>{{$product->selling_price}} ৳/ltr</td>

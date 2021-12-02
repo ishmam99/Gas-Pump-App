@@ -10,15 +10,24 @@
         
           <div class="container"  >
               
-            <div class="col-md-10">
+            <div class="col-md-5">
             <button onclick="printDiv('container')" class="btn btn-default"><i class="fa fa-print"></i> Print </button>
-         
+        <div>
+          <form action="{{route('report.company',['id'=>$company->id])}}" method="POST">
+            @csrf
+            <label for="Starting Date">Starting Date</label>
+            <input type="date" class="form-control" name="start">
+            <label for="Ending Date">Ending Date</label>
+            <input type="date" class="form-control" name="end">
+            <button type="submit">Get Report</button>
+          </form>
+        </div>
         </div> <br>
 
-        <div class="row">         
+               
 
-                      <div class="row">
-                <div class="col-10" id="container"style="background-color: white">
+           <div class="row">
+                <div class="col-12" id="container"style="background-color: white">
 
                         <!-- Main content -->
                         <div class="invoice p-3 mb-3">
@@ -57,8 +66,8 @@
                           <!-- /.row -->
 
                           <!-- Table row -->
-                          <div class="row">
-                            <div class="col-12 table-responsive">
+                          <div class="row justify-content-end">
+                            <div class="col-12 table">
                               <table id="datatable2" class="table table-bordered">
                                 <thead>
                                 <tr>
@@ -70,6 +79,7 @@
                                    <th>Billing Amount</th>
                                    <th>Paid Amount</th>
                                    <th>Due Amount</th>
+                                    <th>Date</th>
                                  
                                 </tr>
                                 </thead>
@@ -86,14 +96,15 @@
                                
                                 <tr>
                                   <td>{{$key+1}}</td>
-                                
-                                  <td>{{$item->vehicle_number}}</td>
-                                <td>{{$item->owener_name}}</td>
+                                <?php $vehicle=DB::table('vehicles')->where('id',$item->client_id)->first();?>
+                                  <td>{{$vehicle->vehicle_number}}</td>
+                                <td>{{$item->driver_name}}</td>
                                   <td <?php $quantity=$quantity+$item->quantity?>>{{$item->quantity}} ltr</td>
                                   
                                   <td <?php $total_amount=$total_amount+$item->total_amount ?>> {{$item->total_amount}}</td>
                                   <td <?php $paid_amount=$paid_amount+$item->paid_amount?>>{{$item->paid_amount}}</td>
                                   <td <?php $due_amount=$due_amount+$item->due_amount?>>{{$item->due_amount}}</td>
+                                  <td>{{Carbon\Carbon::parse($item->created_at)->format('d-m-Y')}}</td>
                                 </tr>  
                                 @endforeach
                                
@@ -107,25 +118,23 @@
                                    <td>৳ <?php echo $total_amount ?> </td>
                                     <td>৳ <?php echo $paid_amount ?> </td>
                                    <td>৳ <?php echo $due_amount ?> </td>
+                                   <td></td>
                                </tfoot>
                                
                               </table>
                             </div>
                             <!-- /.col -->
-                          </div>
+                          
                           <!-- /.row -->
 
-                          <div class="row">
+                        
                             <!-- accepted payments column -->
                             
-                            <!-- /.col -->
-                            <div class="col-lg-8">
-                              
-                            </div>
-                            <div class="col-lg-4" >
+                            
+                            <div class="col-4 order-3" >
                              
 
-                              <div class="table-bordered">
+                              
                                 <table class="table">
                                   <tbody><tr>
                                     <th style="width:50%">Subtotal:</th>
@@ -142,21 +151,21 @@
                               <tfoot><th>Due Amount</th>
                                     <td>৳ <?php echo $due_amount ?></td>
                                 </tfoot></table>
-                              </div>
+                             
                             </div>
                             <!-- /.col -->
-                          </div>
+                        
                           <!-- /.row -->
 
                           <!-- this row will not appear when printing -->
-                          
+                          </div>
 
                         </div>
                         <!-- /.invoice -->
                       </div>
 
 
-        </div>
+        
         </div>  {{-- row --}}
        
           </div>

@@ -23,10 +23,14 @@ class SalesController extends Controller
     { 
         $sale=new Sales();
         $sale->client_id=$request->vehicle;
-        $vehicle=Vehicle::find($request->vehicle)->first();
-        $sale->vehicle_number=$vehicle->vehicle_number;
+        $vehicle=Vehicle::where('id',$request->vehicle)->first();
+        $sale->driver_name=$request->driver_name;
         $sale->company_id=$request->company_id;
         $sale->fuel_id=$request->product_id;
+        $product=Product::where('id',$request->product_id)->first();
+        $updated_quantity=($product->product_quantity)-($request->quantity);
+        $product->product_quantity=$updated_quantity;
+        $product->update();
         $sale->paid_amount=$request->paid_amount;
         $sale->quantity=$request->quantity;
         $sale->due_amount=$request->due_amount;

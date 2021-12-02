@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\Company;
 use App\Models\Vehicle;
 use DB;
+use Carbon\Carbon;
 class CompanyController extends Controller
 {
-     public function __construct()
-    {
-        $this->middleware('admin');
-    }
+    //  public function __construct()
+    // {
+    //     $this->middleware('admin');
+    // }
     //
     public function company()
     {
@@ -90,6 +91,21 @@ class CompanyController extends Controller
         $vehicle=Vehicle::where('company_id',$id)->get();
        
         return view('company.view',compact('sales','company','vehicle'));
+    }
+      public function report(Request $request,$id)
+    {
+        
+        $date1=Carbon::createFromFormat('Y-m-d', $request->start);
+        $date2=Carbon::createFromFormat('Y-m-d', $request->end); 
+        $sales=DB::table('sales')
+                            ->where('sales.company_id',$id) 
+                             ->whereBetween('created_at', [$date1, $date2])
+                            ->get();
+      
+        $company=Company::where('id',$id)->first();
+        $vehicle=Vehicle::where('company_id',$id)->get();
+       
+       return view('company.view',compact('sales','company','vehicle'));
     }
 
     public function vehicle($id)

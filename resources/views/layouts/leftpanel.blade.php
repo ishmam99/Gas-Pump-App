@@ -11,7 +11,12 @@
 
       <label class="sidebar-label">Navigation</label>
       <div class="sl-sideleft-menu">
-        <a href="{{route('admin')}}" class="sl-menu-link active">
+        @if (Auth::user()->role_id==1)
+             <a href="{{route('admin')}}" class="sl-menu-link active">
+        @else
+             <a href="{{route('user')}}" class="sl-menu-link active">
+        @endif
+       
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
             <span class="menu-item-label">Dashboard</span>
@@ -56,6 +61,13 @@
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
             <span class="menu-item-label">Product</span>
+          
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <a href="{{route('cashier')}}" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon ion-ios-person tx-24"></i>
+            <span class="menu-item-label"> Cashier List</span>
           
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->

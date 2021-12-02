@@ -21,7 +21,7 @@ class CreateSalesTable extends Migration
             $table->string('due_amount');
             $table->string('total_amount');
             $table->string('quantity');
-            $table->string('vehicle_number');
+            $table->string('driver_name')->nullable();
             $table->integer('employee_id');
             $table->integer('company_id')->nullable();
             $table->string('phone')->nullable();

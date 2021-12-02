@@ -32,6 +32,10 @@ Route::post('/home',[App\Http\Controllers\HomeController::class,'profileUpdate']
 Route::get('/update',[App\Http\Controllers\HomeController::class,'update'])->name('profile');
 Route::get('/user',[App\Http\Controllers\Admin\DashboardController::class,'user'])->name('user');
 Route::get('/admin', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin')->middleware('admin');
+Route::get('/cashier',[DashboardController::class,'cashier'])->name('cashier')->middleware('admin');
+Route::get('/cashier/{id}',[DashboardController::class,'cashierShow'])->name('show.cashier')->middleware('admin');
+Route::get('/cashier/delete/{id}',[DashboardController::class,'cashierDelete'])->name('delete.cashier')->middleware('admin');
+
 
 ////Company Routes
 
@@ -39,6 +43,8 @@ Route::get('/admin', [App\Http\Controllers\Admin\DashboardController::class, 'in
 Route::get('/company', [CompanyController::class, 'company'])->name('company');
 
 Route::get('/company/{id}', [CompanyController::class, 'view'])->name('view.company');
+
+Route::post('/company/{id}', [CompanyController::class, 'report'])->name('report.company');
 
 Route::get('/company/vehicle/{id}', [CompanyController::class, 'vehicle'])->name('vehicle.company');
 Route::get('/company/edit/{id}', [CompanyController::class, 'edit'])->name('edit.company');
@@ -86,6 +92,7 @@ Route::get('/paid/{id}',[SalesController::class,'paid'])->name('paid.sales');
 
 
 Route::get('/invoice/{id}',[SalesController::class,'invoice'])->name('invoice');
+
 
 //end Auth Routes
 });
