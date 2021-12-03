@@ -5,7 +5,7 @@
                    $due=DB::table('sales')->where('employee_id',Auth::user()->id)->sum('due_amount');
                    ?>
 @section('content')	
-<div class="sl-mainpanel">
+
       <nav class="breadcrumb sl-breadcrumb">
         <a class="breadcrumb-item" href="{{route('home')}}">Filling Station</a>
         <span class="breadcrumb-item active">Cashier Section</span>
@@ -150,5 +150,8 @@
     			</div> <!-- Row -->
 	       
    </div>    
-</div>
+            </div>
+      </div>
+      </div>
+      
 @endsection

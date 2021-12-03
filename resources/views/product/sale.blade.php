@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
- <div class="sl-mainpanel">
+ 
       
       <div class="sl-pagebody">
         <div class="sl-page-title">
@@ -103,9 +103,9 @@
             </form>
           </div><!-- form-layout -->
         </div><!-- card -->
-        </div>
+      
 
-      </div>
+      
 <!--- Modal -->
 <div id="modaldemo3" class="modal fade">
           <div class="modal-dialog modal-xl" role="document">

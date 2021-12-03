@@ -1,18 +1,16 @@
 @extends('layouts.app')
 @section('content')
     <!-- ########## START: MAIN PANEL ########## -->
-    <div class="sl-mainpanel">
-      
-
+   
       <div class="sl-pagebody">
         <div class="sl-page-title">
-          <h5>Vehicles Table</h5>
+          <h5>Available Cashiers </h5>
          
         </div><!-- sl-page-title -->
 
         <div class="card pd-20 pd-sm-40">
-          <h6 class="card-body-title">Vehicles List
-         <a href="#" class="btn btn-sm btn-warning" style="float: right;" data-toggle="modal" data-target="#modaldemo3">Add New</a></h6>
+          <h6 class="card-body-title">Cashiers List
+         </h6>
 
           <div class="table-wrapper">
             <table id="datatable1" class="table display responsive nowrap">
@@ -56,12 +54,7 @@
   
 
       </div><!-- sl-pagebody -->
-      <footer class="sl-footer">
-        <div class="footer-left">
-          <div class="mg-b-2">Copyright &copy; 2021. Ishmam Bin Azim. All Rights Reserved.</div>
-          
-      
-      </footer>
+     
  
        
 

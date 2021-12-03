@@ -19,7 +19,11 @@ class AdminMiddleware
         if(Auth::check() && Auth::user()->role_id==1)
         {return $next($request);}
         else{
-            return redirect()->back();
+             $notification=array(
+            'messege'=>'Access Denies!!',
+            'alert-type'=>'warning'
+        );
+            return redirect()->back()->with($notification);
         }
     }
 }

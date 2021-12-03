@@ -94,14 +94,21 @@ class CompanyController extends Controller
     }
       public function report(Request $request,$id)
     {
-        
+         if($request->today == 1){
+                $sales=DB::table('sales')->where('created_at', '>=', Carbon::today())->get();
+               
+         }
+        else {
+           
+      
         $date1=Carbon::createFromFormat('Y-m-d', $request->start);
+        
         $date2=Carbon::createFromFormat('Y-m-d', $request->end); 
         $sales=DB::table('sales')
                             ->where('sales.company_id',$id) 
                              ->whereBetween('created_at', [$date1, $date2])
                             ->get();
-      
+        }
         $company=Company::where('id',$id)->first();
         $vehicle=Vehicle::where('company_id',$id)->get();
        

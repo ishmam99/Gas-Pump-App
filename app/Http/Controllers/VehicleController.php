@@ -65,7 +65,7 @@ class VehicleController extends Controller
     public function update(Request $request,$id)
         {
              
-            $vehicle=Vehicle::find($id)->first(); 
+            $vehicle=Vehicle::find($id); 
            $data=array();
            if($vehicle->vehicle_number == $request->vehicle_number)
            {

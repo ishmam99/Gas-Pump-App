@@ -3,7 +3,7 @@
 
 @section('content')
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-<div class="sl-mainpanel">
+>
       
 
       <div class="sl-pagebody">
@@ -11,17 +11,24 @@
           <div class="container"  >
               
             <div class="col-md-5">
-            <button onclick="printDiv('container')" class="btn btn-default"><i class="fa fa-print"></i> Print </button>
-        <div>
+            <button onclick="printDiv('container')" class="btn btn-success"><i class="fa fa-print"></i> Print </button>
+       
           <form action="{{route('report.company',['id'=>$company->id])}}" method="POST">
             @csrf
             <label for="Starting Date">Starting Date</label>
-            <input type="date" class="form-control" name="start">
+            <input type="date" class="form-control" name="start" required>
             <label for="Ending Date">Ending Date</label>
             <input type="date" class="form-control" name="end">
-            <button type="submit">Get Report</button>
+            <button class="btn btn-warning" type="submit">Get Report</button>
           </form>
-        </div>
+          <br>
+           <form action="{{route('report.company',['id'=>$company->id])}}" method="POST">
+            @csrf
+            
+            <input type="number" hidden value="1" class="form-control" name="today">
+            <button class="btn btn-primary" type="submit">Get Today's Report</button>
+          </form>
+        
         </div> <br>
 
                
@@ -170,7 +177,7 @@
        
           </div>
     </div>
-      </div>
+     
       <script>
 		function printDiv(divName){
 			var printContents = document.getElementById(divName).innerHTML;

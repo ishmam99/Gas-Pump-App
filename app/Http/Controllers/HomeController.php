@@ -24,7 +24,12 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::check()){
-             return view('home');
+            if(Auth::user()->role_id==1){
+             return redirect()->route('admin');
+            }
+            else {
+               return redirect()->route('user');
+            }
         }
         else{
             return view('welcome');

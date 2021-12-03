@@ -72,7 +72,8 @@ class ProductController extends Controller
     public function update(Request $request)
         {
              
-            $product=Product::find($request->id)->first(); 
+            $product=Product::find($request->id); 
+            
            $data=array();
            $data['product_name']=$request->product_name;
            $data['product_quantity']=$request->product_quantity;

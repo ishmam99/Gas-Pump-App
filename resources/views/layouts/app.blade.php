@@ -244,9 +244,17 @@
     </div><!-- sl-sideright -->
     <!-- ########## END: RIGHT PANEL ########## --->
  <main class="py-4">
+   <div class="sl-mainpanel">
             @yield('content')
-        </main>
-   
+        
+    <footer class="sl-footer">
+        <div class="footer-left">
+          <div class="mg-b-2">Copyright &copy; 2021. Ishmam Bin Azim. All Rights Reserved.</div>
+          
+      
+      </footer>
+   </div>
+    </main>
 
      
     <script src="{{asset('/lib/jquery/jquery.js')}}"></script>

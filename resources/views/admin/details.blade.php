@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')	
-<div class="sl-mainpanel">
+
       <nav class="breadcrumb sl-breadcrumb">
         <a class="breadcrumb-item" href="{{route('home')}}">Filling Station</a>
         <span class="breadcrumb-item active">Cashier Section</span>
@@ -40,7 +40,7 @@
                                 <hr><hr>
                             </div>
                         </div>
-                <div class="col-lg-10">
+                <div class="col-lg-12">
                     <div class="table-wrapper">
                         <table id="datatable1" class="table display responsive nowrap">
                            <thead>
@@ -49,10 +49,10 @@
                                <th class="wd-10p">Invoice <br> Number</th>
                                 <th class="wd-10p">Vehicle <br> Number</th>
                                 <th class="wd-10p">Quantity</th>
-                                <th class="wd-10p">Payable Amount</th>
-                                <th class="wd-10p">Paid Amount</th>
-                                <th class="wd-10p">Due Amount</th>
-                                <th class="wd-10p">Date </th>
+                                <th class="wd-10p">Payable <br> Amount</th>
+                                <th class="wd-10p">Paid <br> Amount</th>
+                                <th class="wd-10p">Due <br> Amount</th>
+                                <th class="wd-10p">Time <br> Date </th>
                                 <th class="wd-20p">Action</th>
                   
                               </tr>
@@ -91,5 +91,5 @@
 	      </div>
       </div>    
    </div>    
-</div>
+
 @endsection

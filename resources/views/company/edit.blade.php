@@ -1,17 +1,18 @@
 @extends('layouts.app')
 @section('content')
-<div class="sl-mainpanel">
-      
 
-      <div class="sl-pagebody">
-  
-          <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content tx-size-sm">
+       <div class="sl-pagebody">
+        <div class="sl-page-title">
+        
+
+        <div class="card pd-20 pd-sm-40 ">
+          <h6 class="card-body-title">Products Company Details
+        </h6>
+
+          <div class="modal-content-center tx-size-sm ">
               <div class="modal-header pd-x-20">
-                <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Update Company Details</h6>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <h3 class="tx-15 mg-b-10 tx-uppercase tx-inverse tx-bold">Update</h3>
+               
               </div> 
               @if ($errors->any())
                 <div class="alert alert-danger">
@@ -22,10 +23,12 @@
                     </ul>
                 </div>
                   
+             
+              
               @endif
               <form method="POST" action="{{route('update.company',['id'=>$company->id])}}">
                 @csrf
-              <div class="modal-body pd-20">
+              <div class="modal-body pd-20 ">
                
                   <div class="form-group">
                     <label for="category">Company Name</label>
@@ -46,11 +49,12 @@
                 <button type="submit" class="btn btn-info pd-x-20">Submit</button>
                 <button type="button" class="btn btn-secondary pd-x-20" data-dismiss="modal">Close</button>
               </div>
-            </div>
+           
                  </form>
           </div><!-- modal-dialog -->
        
       </div>
-</div>
+       </div>
+      </div>
 
 @endsection

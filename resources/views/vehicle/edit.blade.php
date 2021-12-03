@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <!-- ########## START: MAIN PANEL ########## -->
-    <div class="sl-mainpanel">
+
       
 
       <div class="sl-pagebody">
@@ -60,14 +60,14 @@
                 <button type="submit" class="btn btn-info pd-x-20">Submit</button>
                 <button type="button" class="btn btn-secondary pd-x-20" data-dismiss="modal">Close</button>
               </div>
-            </div>
+            
                  </form>
-          </div><!-- modal-dialog -->
-       
+          
+       </div>
 
       </div><!-- sl-pagebody -->
        
-    </div><!-- sl-mainpanel -->
+    
   
 
 @endsection

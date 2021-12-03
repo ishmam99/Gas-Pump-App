@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')	
-<div class="sl-mainpanel">
+
       <nav class="breadcrumb sl-breadcrumb">
         <a class="breadcrumb-item" href="{{route('home')}}">Filling Station</a>
         <span class="breadcrumb-item active">Vehicle Section</span>
@@ -36,7 +36,7 @@
                                 <hr><hr>
                             </div>
                         </div>
-                <div class="col-lg-10">
+                <div class="col-lg-12">
                     <div class="table-wrapper">
                         <table id="datatable1" class="table display responsive nowrap">
                            <thead>
@@ -44,10 +44,11 @@
                                 <th class="wd-10p">ID</th>
                                
                                 <th class="wd-10p">Cashier <br> Name</th>
+                                <th class="wd-10p">Driver <br> Name</th>
                                 <th class="wd-10p">Quantity</th>
-                                <th class="wd-10p">Payable Amount</th>
-                                <th class="wd-10p">Paid Amount</th>
-                                <th class="wd-10p">Due Amount</th>
+                                <th class="wd-10p">Payable <br> Amount</th>
+                                <th class="wd-10p">Paid <br> Amount</th>
+                                <th class="wd-10p">Due <br> Amount</th>
                                 <th class="wd-10p">Date </th>
                                 <th class="wd-20p">Action</th>
                   
@@ -61,6 +62,7 @@
                             <td>{{$key +1}}</td>
                               <?php $employee = DB::table('users')->where('id', $sale->employee_id)->first(); ?>
                             <td>{{$employee->name}}</td>
+                            <td>{{$sale->driver_name}}</td>
                             <td>{{$sale->quantity}}</td>
                             <td>{{$sale->total_amount}}</td>
                             <td>{{$sale->paid_amount}}</td>
@@ -85,5 +87,5 @@
 	      </div>
       </div>    
    </div>    
-</div>
+
 @endsection

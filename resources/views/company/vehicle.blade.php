@@ -1,9 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <!-- ########## START: MAIN PANEL ########## -->
-    <div class="sl-mainpanel">
-      
-
+ 
       <div class="sl-pagebody">
         <div class="sl-page-title">
           <h5>Vehicles Table</h5>
@@ -12,8 +10,8 @@
 
         <div class="card pd-20 pd-sm-40">
           <h6 class="card-body-title">Vehicles List of <h2>{{$company->name}}</h2>
-         <a href="#" class="btn btn-sm btn-warning" style="float: right;width:10%;" data-toggle="modal" data-target="#modaldemo3">Add New</a></h6>
-
+         <a href="#" class="btn btn-sm btn-warning" style="float: right;width:10%;" data-toggle="modal" data-target="#modaldemo3">Add New Vehicle</a> <br> </h6>
+<a href="{{route('view.company',['id'=>$company->id])}}" class="btn btn-sm btn-success" style="float: right;width:10%;" >Get Sales Report</a>
           <div class="table-wrapper">
             <table id="datatable1" class="table display responsive nowrap">
               <thead>
@@ -70,7 +68,7 @@
           <a target="_blank" class="pd-x-5" href="https://twitter.com/home?status=Starlight,%20your%20best%20choice%20for%20premium%20quality%20admin%20template%20from%20Bootstrap.%20Get%20it%20now%20at%20http%3A//themepixels.me/starlight"><i class="fa fa-twitter tx-20"></i></a>
         </div>
       </footer>
-    </div><!-- sl-mainpanel -->
+    
     <!-- ########## END: MAIN PANEL ########## -->
           <!-- LARGE MODAL -->
         <div id="modaldemo3" class="modal fade">
