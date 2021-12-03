@@ -1,3 +1,4 @@
+<?php $bg=3;?>
 @extends('layouts.app')
 @section('content')
 
@@ -6,7 +7,7 @@
         
 
         <div class="card pd-20 pd-sm-40 ">
-          <h6 class="card-body-title">Products Company Details
+          <h6 class="card-body-title">Update Company Details
         </h6>
 
           <div class="modal-content-center tx-size-sm ">
@@ -47,7 +48,7 @@
               </div><!-- modal-body -->
               <div class="modal-footer">
                 <button type="submit" class="btn btn-info pd-x-20">Submit</button>
-                <button type="button" class="btn btn-secondary pd-x-20" data-dismiss="modal">Close</button>
+               <a href="javascript:history.back()"> <button type="button" class="btn btn-secondary pd-x-20" >Close</button></a>
               </div>
            
                  </form>

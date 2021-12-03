@@ -1,3 +1,4 @@
+<?php $bg=6;?>
 @extends('layouts.app')
 
 @section('content')	

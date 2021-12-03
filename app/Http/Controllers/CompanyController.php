@@ -58,7 +58,7 @@ class CompanyController extends Controller
     public function update(Request $request)
         {
              
-            $company=Company::find($request->id)->first(); 
+            $company=Company::find($request->id); 
            if($company->name!=$request->name )
            {
                 $validateData=$request->validate([
@@ -72,9 +72,9 @@ class CompanyController extends Controller
                 $company->phone=$request->phone;
             }
            
-           $company->save();
+           $company->update();
             $notification=array(
-            'messege'=>'Company Deleted Successfully',
+            'messege'=>'Company Data Updated Successfully',
             'alert-type'=>'success'
         );
          return redirect()->route('company')->with($notification);
@@ -95,15 +95,19 @@ class CompanyController extends Controller
       public function report(Request $request,$id)
     {
          if($request->today == 1){
-                $sales=DB::table('sales')->where('created_at', '>=', Carbon::today())->get();
+                $sales=DB::table('sales')
+                                ->where('company_id',$id)
+                                ->where('created_at', '>=', Carbon::today(6))
+                                ->get();
                
          }
         else {
            
       
-        $date1=Carbon::createFromFormat('Y-m-d', $request->start);
+        $date1=Carbon::createFromFormat('Y-m-d', $request->start)->toDateString()." 00:00:00";
         
-        $date2=Carbon::createFromFormat('Y-m-d', $request->end); 
+        $date2=Carbon::createFromFormat('Y-m-d', $request->end)->toDateString()." 23:59:59"; 
+       // dd($date1,$date2);
         $sales=DB::table('sales')
                             ->where('sales.company_id',$id) 
                              ->whereBetween('created_at', [$date1, $date2])

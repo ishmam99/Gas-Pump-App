@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
         ]);
          DB::table('companies')->insert([
           
-            'name'=>'No Company',
+            'name'=>'Customer',
            
             'phone'=>'Not Applicable',
             

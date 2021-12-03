@@ -1,3 +1,4 @@
+<?php $bg=5;?>
 @extends('layouts.app')
 @section('content')
     <!-- ########## START: MAIN PANEL ########## -->
@@ -77,7 +78,7 @@
              <!-- modal-body -->
               <div class="modal-footer">
                 <button type="submit" class="btn btn-info pd-x-20">Submit</button>
-                <button type="button" class="btn btn-secondary pd-x-20" data-dismiss="modal">Close</button>
+              <a href="javascript:history.back()"> <button type="button" class="btn btn-secondary pd-x-20" >Close</button></a>
               </div>
             
                  </form>

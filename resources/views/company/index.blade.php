@@ -1,3 +1,4 @@
+<?php $bg=3;?>
 @extends('layouts.app')
 @section('content')
     <!-- ########## START: MAIN PANEL ########## -->

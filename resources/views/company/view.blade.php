@@ -1,9 +1,9 @@
-
+<?php $bg=3;?>
 @extends('layouts.app')
 
 @section('content')
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
->
+
       
 
       <div class="sl-pagebody">
@@ -44,11 +44,13 @@
                               <h4 >
                              <i class="fa fa-gas-pump"></i>  M/S Mohona Filling Station & Service Center
                            </h4> 
-                              
+                              <?php 
+                              $sale=DB::table('sales')->count('id');
+                              $serial= sprintf("%06s", $sale); ?>
                               
                             </div>
                             <div class="col-2">
-                              <small class="float-right">Date: {{Carbon\Carbon::now()->format('d-m-Y');}} <br> <b>Invoice #000</b></small>
+                              <small class="float-right">Date: {{Carbon\Carbon::now()->format('d-m-Y');}} <br> <b>Invoice #{{$serial}}</b></small>
                             </div>
                             <div class="col-10 text-center">
                               <p>Gabtoly,Mirpur,Dhaka-1216,Bangladesh      </p>
@@ -81,7 +83,7 @@
                                   <th>Num</th>
                                  
                                   <th>Vehicle Number</th>
-                                 <th>Driver Name</th>
+                                 <th>Received By</th>
                                    <th>Quantity</th>
                                    <th>Billing Amount</th>
                                    <th>Paid Amount</th>

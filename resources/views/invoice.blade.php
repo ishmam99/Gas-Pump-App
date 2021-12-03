@@ -39,7 +39,7 @@
                              
                               <address>
                                 <strong>Name : {{$client->owener_name}}</strong><br>
-                                Driver Name : {{$sales->driver_name}} <br>
+                                Received By : {{$sales->driver_name}} <br>
                               Company : {{$company->name}}<br>
                                 Phone : {{$client->owener_phone}}<br>
                                

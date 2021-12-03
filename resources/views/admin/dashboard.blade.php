@@ -1,3 +1,4 @@
+<?php $bg=1;?>
 @extends('layouts.app')
 
 @section('content')
@@ -13,7 +14,7 @@
           <div class="col-sm-6 col-xl-3">
             <div class="card pd-20 bg-primary">
               <div class="d-flex justify-content-between align-items-center mg-b-10">
-                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Total Sales</h6>
+                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Total Sales date</h6>
                 <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
               </div><!-- card-header -->
               <div class="d-flex align-items-center justify-content-between">
@@ -156,7 +157,7 @@
                   <th>Invoice <br>Number</th>
                    <th >Company <br> Name</th>
                    <th >Vehicle <br> Number</th>
-                   <th >Driver <br> Name</th>
+                   <th >Received <br> By</th>
                    <th >Cashier <br> Name</th>
                    <th >Quantity</th>
                   <th >Payable <br> Amount</th>
@@ -177,7 +178,7 @@
                   <td>{{$sale->name}}</td>
                   <td>{{$driver->vehicle_number}}</td> 
                  
-                  <td>{{$driver->owener_name}}</td>
+                  <td>{{$sale->driver_name}}</td>
                   <?php $employee = DB::table('users')->where('id', $sale->employee_id)->first(); ?>
                   <td>{{$employee->name}}</td>
                   <td>{{$sale->quantity}}</td>

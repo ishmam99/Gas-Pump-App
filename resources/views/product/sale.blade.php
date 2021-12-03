@@ -1,3 +1,4 @@
+<?php $bg=2;?>
 @extends('layouts.app')
 @section('content')
  
@@ -41,8 +42,8 @@
               </div>
               <div class="col-lg-4">
                 <div class="form-group mg-b-10-force">
-                  <label class="form-control-label">Driver Name: <span class="tx-danger"></span></label>
-                 <input type="text" class="form-control" placeholder="Enter Driver Name" name="driver_name">
+                  <label class="form-control-label">Received By: <span class="tx-danger"></span></label>
+                 <input type="text" class="form-control" placeholder="Enter Receiver Name" name="driver_name">
                 </div>
               </div>
               <div class="col-lg-4">
@@ -70,7 +71,7 @@
               <div class="col-lg-4">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">Paid Amount: <span class="tx-danger">*</span></label>
-                 <input class="form-control" type="text" name="paid_amount" id="paid_amount" required>
+                 <input class="form-control" type="text" name="paid_amount" placeholder="Enter Amount Paid" id="paid_amount" required>
                 </div>
               </div><!-- col-4 -->
              <div class="col-lg-5">

@@ -26,7 +26,7 @@ class VehicleController extends Controller
     {
         $validateData=$request->validate([
             'vehicle_number'=>'required|unique:vehicles|max:255',
-           'owener_name'=>'required|max:255',
+           'owener_name'=>'max:255',
             'owener_phone'=>'required|max:255',
             'company_id'=>'required',
         ]);
